@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>NETRUN — Linux Command Line</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@300;400;500;600&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Inter:wght@300;400;500;600&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -13,8 +13,8 @@
   --border:#2A1F3D;--border-dim:#1A1228;
   --cyan:#00B4CC;--magenta:#B044A0;--violet:#6B3FA0;
   --amber:#D4A847;--green:#2ECC8A;--red:#C0392B;
-  --text:#EEEEF8;--text-dim:#C0C0DC;--text-muted:#9898B8;
-  --font-head:'Orbitron',sans-serif;--font-body:'Rajdhani',sans-serif;--font-mono:'Space Mono',monospace;
+  --text:#F2F2FC;--text-dim:#DCDCF0;--text-muted:#C0C0D8;
+  --font-head:'Orbitron',sans-serif;--font-body:'Inter',sans-serif;--font-mono:'Space Mono',monospace;
 }
 html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);font-family:var(--font-body)}
 /* SCANLINE */
@@ -34,7 +34,7 @@ body::before{content:'';position:fixed;top:0;left:0;right:0;height:2px;backgroun
 #sidebar::-webkit-scrollbar{width:4px}
 #sidebar::-webkit-scrollbar-track{background:var(--sidebar)}
 #sidebar::-webkit-scrollbar-thumb{background:var(--border)}
-.part-header{padding:14px 16px 6px;font-family:var(--font-head);font-size:9px;font-weight:700;color:var(--violet);letter-spacing:3px;text-transform:uppercase;border-top:1px solid var(--border-dim)}
+.part-header{padding:14px 16px 6px;font-family:var(--font-head);font-size:9px;font-weight:700;color:#A080D0;letter-spacing:3px;text-transform:uppercase;border-top:1px solid var(--border-dim)}
 .part-header:first-child{border-top:none}
 .ch-item{display:flex;align-items:center;gap:10px;padding:8px 16px;cursor:pointer;border-left:3px solid transparent;transition:all 0.2s;position:relative}
 .ch-item:hover{background:rgba(107,63,160,0.12);border-left-color:var(--violet)}
@@ -42,7 +42,7 @@ body::before{content:'';position:fixed;top:0;left:0;right:0;height:2px;backgroun
 @keyframes chpulse{0%,100%{opacity:1}50%{opacity:0.7}}
 .ch-item.done{border-left-color:var(--green)}
 .ch-num{font-family:var(--font-mono);font-size:10px;color:var(--text-muted);min-width:24px}
-.ch-title{font-size:13px;font-weight:500;color:var(--text-dim);flex:1;line-height:1.3}
+.ch-title{font-size:13px;font-weight:500;color:var(--text);flex:1;line-height:1.3}
 .ch-item.active .ch-title,.ch-item:hover .ch-title{color:var(--text)}
 .ch-check{font-size:10px;color:var(--green);opacity:0}
 .ch-item.done .ch-check{opacity:1}
@@ -66,7 +66,7 @@ body::before{content:'';position:fixed;top:0;left:0;right:0;height:2px;backgroun
 .ch-banner{margin-bottom:32px;padding-bottom:24px;border-bottom:1px solid var(--border)}
 .ch-banner-num{font-family:var(--font-mono);font-size:12px;color:var(--violet);letter-spacing:3px;margin-bottom:8px}
 .ch-banner-title{font-family:var(--font-head);font-size:28px;font-weight:700;color:var(--text);line-height:1.2}
-.ch-banner-summary{margin-top:12px;font-size:15px;color:var(--text-dim);font-style:italic;max-width:620px;line-height:1.6}
+.ch-banner-summary{margin-top:12px;font-size:15px;color:var(--text);font-style:italic;max-width:620px;line-height:1.6}
 /* SECTIONS */
 .section{margin-bottom:36px}
 .section-header{font-family:var(--font-head);font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--violet);margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid var(--border-dim)}
@@ -75,12 +75,12 @@ body::before{content:'';position:fixed;top:0;left:0;right:0;height:2px;backgroun
 .jargon-card{display:grid;grid-template-columns:160px 1fr 1fr;gap:0;background:var(--panel);border:1px solid var(--border)}
 .jargon-term{padding:14px 16px;font-family:var(--font-head);font-size:13px;color:var(--cyan);font-weight:600;border-right:1px solid var(--border);display:flex;align-items:center}
 .jargon-plain{padding:14px 16px;font-size:14px;color:var(--text);border-right:1px solid var(--border-dim);line-height:1.5;font-weight:400}
-.jargon-tech{padding:14px 16px;font-size:12px;color:var(--text-muted);line-height:1.5;font-family:var(--font-mono)}
+.jargon-tech{padding:14px 16px;font-size:12px;color:var(--text-dim);line-height:1.5;font-family:var(--font-mono)}
 /* CONCEPTS */
 .concept-card{background:var(--panel);border:1px solid var(--border);padding:18px 20px;margin-bottom:10px;border-left:3px solid var(--violet)}
 .concept-title{font-family:var(--font-head);font-size:13px;color:var(--violet);margin-bottom:10px}
 .concept-plain{font-size:14px;color:var(--text);line-height:1.6;margin-bottom:8px}
-.concept-tech{font-size:12px;color:var(--text-muted);font-family:var(--font-mono);line-height:1.6;padding-top:8px;border-top:1px solid var(--border-dim)}
+.concept-tech{font-size:13px;color:var(--text-dim);font-family:var(--font-mono);line-height:1.6;padding-top:8px;border-top:1px solid var(--border-dim)}
 /* QUESTIONS */
 .question-card{background:var(--panel);border:1px solid var(--border);padding:20px 24px;margin-bottom:12px;position:relative;transition:all 0.3s}
 .question-card.correct{background:rgba(46,204,138,0.08);border-color:var(--green);animation:correctflash 0.6s ease}
